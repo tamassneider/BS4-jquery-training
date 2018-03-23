@@ -1,0 +1,158 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<!--    <link rel="icon" href="../../../../favicon.ico"> -->
+
+    <title>Jegybazár</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="events.html">Események</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="tickets.html">Jegyek</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">Rólunk</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Belépés</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+    <main role="main">
+
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+        <div class="container">
+          <h1 class="display-3">Események</h1>
+          <p>Itt találod az események táblázatát. Ha érdekel, innen tovább tudsz ugrani a jegyvásárlásra</p>
+        </div>
+      </div>
+
+      <div class="row pb-4 justify-content-center">
+        <div class="col-4">
+          <button onclick="openNewEventModal()" class="btn btn-block btn-primary btn-lg">Új Esemény</button>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row events-search-row">
+          <div class="col-12">
+              <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </div>
+                </div>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="card-deck events-card-deck">
+        </div>
+        <!--/Cards-->
+        <hr>
+
+      </div> <!-- /container -->
+
+    </main>
+
+    <footer class="container">
+      <p>&copy; Company 2017-2018</p>
+    </footer>
+
+    <div class="templates" style="display: none;">
+        <a href="tickets.html?event=1" class="card col-4">
+            <img class="card-img-top" src="img/Sziget.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Sziget Fesztivál</h5>
+              <p class="card-text">Basszunk be jól a Szigeten, mert az jó</p>
+              <p class="card-text event-time"><small class="text-muted">2018.08.28</small></p>
+              <p><button class="btn btn-link float-right">Tovább</button></p>
+            </div>
+          </a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="newEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Új Esemény</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form callBack = "startEventsPage" method="post" action="http://localhost:3000/events" name="newEventForm" id="newEventForm">
+                <div class="form-group"></div>
+                  <label for="title">Cím</label>
+                  <input type="text" name="title" id="title" class="form-control">
+                <div class="form-group"></div>
+                  <label for="time">Időpont</label>
+                  <input type="date" name="time" id="time" class="form-control">
+                <div class="form-group"></div>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="image" name="image">
+                    <label class="custom-file-label" for="image">Kép kiválasztása</label>
+                    <div class="preview-holder">
+                      <img src="img/no-image.jpg" alt="">
+                    </div>
+                  </div>
+                <div class="form-group pt-5"></div>
+                  <label for="description">Laírás</label>
+                  <input type="text" name="description" id="description" class="form-control">
+              </form>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Mégsem</button>
+              <button type="submit" class="btn btn-primary" form="newEventForm">Mentés</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="lib/jquery-3.3.1.min.js"></script>
+    <script src="lib/popper.min.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/events.js"></script>
+  </body>
+</html>

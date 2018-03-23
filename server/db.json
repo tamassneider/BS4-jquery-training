@@ -1,0 +1,280 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Sziget Fesztivál",
+      "description": "Látogass el a 25 éves Szigetre és bulizz a legjobb arcokkal",
+      "time": "2018-08-03",
+      "image": "img/Sziget.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Diótörő Balett",
+      "description": "Nézd meg a grandiőzus balett előadást most elővételben",
+      "time": "2018-08-03",
+      "image": "img/diotoro.jpg"
+    },
+    {
+      "title": "Efott",
+      "time": "2017-10-31",
+      "image": "img/Sziget.jpg",
+      "description": "A logjobb buli.",
+      "id": 3
+    },
+    {
+      "title": "Macskák Musical",
+      "time": "2018-02-22",
+      "image": "img/macskak.jpg",
+      "description": "A világ leghíresebb Musicelje a legjobb előadóktól.",
+      "id": 4
+    }
+  ],
+  "tickets": [
+    {
+      "id": 1,
+      "event": "Sziget Fesztivál",
+      "eventId": 1,
+      "time": "2018-08-03 18:00:00",
+      "seller": "Kis Márton",
+      "pcs": 9,
+      "link": "licit/1"
+    },
+    {
+      "id": 2,
+      "eventId": 2,
+      "event": "Diótörő Balett",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Nagy Ádám",
+      "pcs": 6,
+      "link": "licit/1"
+    },
+    {
+      "id": 3,
+      "event": "MOMA Party",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Brezeviczy Krisztián",
+      "pcs": 1,
+      "link": "licit/1"
+    },
+    {
+      "id": 4,
+      "event": "A Kékszakállú Herceg vára",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Zwack Magdolna",
+      "pcs": 15,
+      "link": "licit/1"
+    },
+    {
+      "id": 5,
+      "event": "Balett mindenkinek",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Schwarz Aurél",
+      "pcs": 3,
+      "link": "licit/1"
+    },
+    {
+      "id": 6,
+      "eventId": 4,
+      "event": "Macskák Musical",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Nagy Gábor",
+      "pcs": 5,
+      "link": "licit/1"
+    },
+    {
+      "id": 7,
+      "eventId": 4,
+      "event": "Macskák Musical",
+      "time": "2018-08-03 18:00:00",
+      "seller": "Cserkó József - TEST",
+      "pcs": 2,
+      "link": "licit/1"
+    },
+    {
+      "event": "Balett mindenkinek",
+      "seller": "Kiss Péter",
+      "time": "2017-10-27T18:20",
+      "pcs": "1",
+      "id": 8
+    },
+    {
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2018-08-15",
+      "seller": "Én",
+      "pcs": "1",
+      "id": 9
+    },
+    {
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2017-10-31",
+      "seller": "Robi",
+      "pcs": "4",
+      "id": 10
+    },
+    {
+      "event": "Efott",
+      "eventId": "3",
+      "time": "2017-10-31",
+      "seller": "Nagy Géza",
+      "pcs": "4",
+      "id": 11
+    },
+    {
+      "event": "buli",
+      "seller": "jani",
+      "time": "2018-12-22T00:30",
+      "pcs": "23",
+      "id": 12
+    },
+    {
+      "event": "test 2",
+      "seller": "elado 2",
+      "time": "2017-01-01T00:50",
+      "pcs": "2",
+      "id": 13
+    },
+    {
+      "event": "test 3",
+      "seller": "elado 3",
+      "time": "2018-01-01T00:50",
+      "pcs": "3",
+      "id": 14
+    },
+    {
+      "event": "bulika",
+      "seller": "zoli",
+      "time": "2018-03-02T00:23",
+      "pcs": "5",
+      "id": 15
+    },
+    {
+      "event": "party",
+      "seller": "dzsoni",
+      "time": "2019-11-11T09:09",
+      "pcs": "5",
+      "id": 16
+    },
+    {
+      "event": "koncert",
+      "seller": "sanyi",
+      "time": "2018-02-01T07:07",
+      "pcs": "2",
+      "id": 17
+    },
+    {
+      "event": "kirándulás",
+      "seller": "pali",
+      "time": "2018-08-08T17:05",
+      "pcs": "3",
+      "id": 18
+    },
+    {
+      "event": "előadás",
+      "seller": "peti",
+      "time": "2018-01-09T06:00",
+      "pcs": "1",
+      "id": 19
+    },
+    {
+      "event": "zsur",
+      "seller": "tomi",
+      "time": "2018-10-10T20:08",
+      "pcs": "7",
+      "id": 20
+    },
+    {
+      "event": "test",
+      "seller": "bali",
+      "time": "2018-03-03T01:01",
+      "pcs": "1",
+      "id": 21
+    },
+    {
+      "event": "teste",
+      "seller": "geza",
+      "time": "2018-01-01T12:12",
+      "pcs": "5",
+      "id": 22
+    },
+    {
+      "event": "esemeny",
+      "seller": "zsolti",
+      "time": "2018-05-05T18:06",
+      "pcs": "7",
+      "id": 23
+    },
+    {
+      "event": "test 5",
+      "seller": "bela",
+      "time": "2018-02-04T09:09",
+      "pcs": "2",
+      "id": 24
+    },
+    {
+      "event": "Sziget",
+      "eventId": "1",
+      "time": "2018-03-28T01:22",
+      "seller": "Tomi",
+      "pcs": "2",
+      "id": 25
+    },
+    {
+      "event": "Sziget",
+      "eventId": "1",
+      "time": "2018-03-28T01:22",
+      "seller": "Tomi",
+      "pcs": "2",
+      "id": 26
+    },
+    {
+      "event": "Effot",
+      "eventId": "3",
+      "time": "2018-03-28T03:22",
+      "seller": "Tomi",
+      "pcs": "2",
+      "id": 27
+    },
+    {
+      "event": "Effot",
+      "eventId": "3",
+      "time": "2018-03-28T03:22",
+      "seller": "Tomi",
+      "pcs": "2",
+      "id": 28
+    },
+    {
+      "event": "Macskák Musical",
+      "eventId": "4",
+      "time": "2018-02-22",
+      "seller": "",
+      "pcs": "",
+      "id": 29
+    },
+    {
+      "event": "Macskák Musical",
+      "eventId": "4",
+      "time": "2018-02-22",
+      "seller": "323",
+      "pcs": "",
+      "id": 30
+    },
+    {
+      "event": "Macskák Musical",
+      "eventId": "4",
+      "time": "2018-02-22",
+      "seller": "jani",
+      "pcs": "2",
+      "id": 31
+    },
+    {
+      "event": "Macskák Musical",
+      "eventId": "4",
+      "time": "2018-08-23",
+      "seller": "Pali",
+      "pcs": "3",
+      "id": 32
+    }
+  ]
+}

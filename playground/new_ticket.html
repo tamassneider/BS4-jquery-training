@@ -1,0 +1,172 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<!--    <link rel="icon" href="../../../../favicon.ico"> -->
+
+    <title>Jegybazár</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/style.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <main role="main">
+        <div class="container">
+            <form id="new-ticket-form" novalidate>
+                <div class="form-group">
+                    <label for="event-name">Az esemény megnevezése</label>
+                    <input type="text" class="form-control" id="event-name" name="event" aria-describedby="emailHelp" placeholder="Az esemény megnevezése" required>
+                </div>
+                <div class="form-group">
+                    <label for="seller-name">Az eladó neve</label>
+                    <input type="text" class="form-control" id="seller-name" name="seller"aria-describedby="emailHelp" placeholder="Az eladó neve" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Időpont</label>
+                    <input type="datetime-local" class="form-control" id="time" name="time" aria-describedby="emailHelp" placeholder="Időpont" required>
+                </div>
+                <div class="form-group">
+                    <label for="pcs">Jegyek száma</label>
+                    <input type="number" class="form-control" id="pcs" name="pcs" aria-describedby="emailHelp" placeholder="Jegyek száma" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+            <div id="ticket-list">
+                <pre></pre>
+            </div>
+
+        </div>
+
+        <div class="templates" style="display:none;">
+            <table>
+                <tr class="ticket-row">
+                <td></td>
+                <td scope="col" style="min-width:30%">Esemény neve</td>
+                <td scope="col">Időpont</td>
+                <td scope="col" class="d-none d-md-table-cell">Eladó neve</td>
+                <td scope="col" style="width:20%" class="text-right d-none d-md-table-cell">Hány darab?</td>
+                <td scope="col" style="width:25%">Licitek megtekintése</td>
+                </tr>
+            </table>  
+        </div>
+
+    </main>
+
+    <footer class="container">
+      <p>&copy; Company 2017-2018</p>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../lib/jquery-3.3.1.min.js"></script>
+    <script src="../lib/popper.min.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script type="text/javascript">
+    // server URL
+        var RESTURL = "http://localhost:3000";
+        // functions for disabling/enabling input while the ajax request is running
+        function disableInputs(inputs){
+            inputs.prop("disabled",true);
+        }
+
+        function enableInputs (inputs) {
+            inputs.prop("disabled", false);
+        };
+
+
+        // function for displaying an alert after the server response
+        function showAlert(beforeElem, type, text){
+            var formAlertId = 'form-alert';
+            // remove any existing alert from the page
+            $("#"+formAlertId).remove();
+            // create an alert element that is determined by the function parameters
+            $('<div class="alert alert-'+type+'" id="'+formAlertId+'" role="alert">'+text+'</div>')
+            .insertBefore(beforeElem).fadeIn(1000,);
+            // remove the alert after 3 seconds
+            setTimeout(function () {
+                $("#" + formAlertId).fadeOut(1000, function () {
+                    $(this).remove();
+                });
+            }, 3000);
+        }
+        
+        // function for adding the new JSON elements as HTML elements to refresh the ticket table
+        function refreshTicketTable(){
+            $.getJSON(RESTURL+"/tickets?_sort=id&_order=desc").done(
+                function(ticketList){
+                    $('#ticket-list > pre')[0].innerText = JSON.stringify(ticketList, null, 2);
+                }
+            );
+        }
+    
+        $(document).ready(function() {
+            refreshTicketTable();
+
+            $("#new-ticket-form").submit(
+                function(event){
+                    // prevent the default submit event
+                    event.preventDefault();
+                    
+                    // jquery form element
+                    var newTicketFormElem = $(this);
+                    // browser native form element
+                    var newTicketFormNativeElem = newTicketFormElem[0];
+
+                    if(newTicketFormNativeElem.checkValidity() == true) {
+                        // if the form is valid, store the input values in an array
+                        var serializedFormArray = newTicketFormElem.serializeArray();
+                        var data = {}
+                        // turn the array to a json compatible format
+                        $(serializedFormArray).each(
+                            function(index,elem){
+                                data[elem["name"]] = elem["value"];
+                            }
+                        );
+                        // send the data to the server
+
+                        var inputs = $("input", newTicketFormElem);
+                        disableInputs(inputs);
+
+                        $.ajax({
+                            type: "POST",
+                            url: RESTURL + "/tickets",
+                            "data": data,
+                            dataType:"json"
+                        // reaction if the response is success
+                        }).done(function(returnData) {
+                            //reset the form
+                            newTicketFormElem.removeClass("was-validated");                            
+                            newTicketFormNativeElem.reset();
+                            enableInputs(inputs);
+                            // show success alert
+                            showAlert(newTicketFormElem, "success", "Sikeres mentés");
+                            //refresh the ticket table
+                            refreshTicketTable();
+                        // reaction if the response is failure
+                        }).fail (function(){
+                            alert("Hiba a server elérésnél");
+                            enableInputs(inputs);
+                            showAlert(newTicketFormElem, "warning", "Hiba a serveren");
+                        });
+                    }
+                    if (newTicketFormElem.hasClass("was-validated") == false) {
+                        newTicketFormElem.addClass("was-validated");
+                    }
+                }
+            );
+        });
+    </script>
+  </body>
+</html>

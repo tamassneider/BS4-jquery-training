@@ -1,0 +1,98 @@
+/* Move down content because we have a fixed navbar that is 3.5rem tall */
+@import url('https://fonts.googleapis.com/css?family=Roboto&subset=latin-ext');
+@import url(../lib/fontawesome-free-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css);
+
+
+body {
+    padding-top: 3.5rem;
+    font-family: 'Roboto', sans-serif;
+  }
+footer {
+  padding-top: 15px;
+}
+
+  /* Login page elements */
+  .row-login-form {
+  padding-top: 3.5rem;
+}
+
+/* Events page */
+.events-card-deck {
+  margin-bottom: 15px;
+}
+.events-card-deck .card {
+  padding: 0 0 10px 0;
+}
+.events-card-deck .card:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 4px;
+}
+.events-search-row{
+  margin-bottom: 15px;
+}
+
+/*tickets page elements */
+.ticket-table thead th[data-key] {
+  cursor: pointer;
+}
+.ticket-table thead th[data-key] i.fa-sort-amount-up{
+  display: none;
+}
+.ticket-table thead th[data-key] i.fa-sort-amount-down{
+  display: none;
+}
+.ticket-table thead th[data-key].asc i.fa-sort-amount-up {
+  display: inline;
+}
+.ticket-table thead th[data-key].desc i.fa-sort-amount-down {
+  display: inline;
+}
+
+  /* Home page elements */
+  .home-media-image {
+    width:25%;
+  }
+
+  /*links*/
+a {
+    color: black;
+  }
+a:hover{
+  color:black;
+  text-decoration: none;
+}
+
+/* Validation */
+
+.form-group.invalid input,
+.form-group.invalid select,
+-form-group.invalid textarea {
+  border-color: red;
+}
+.form-group.invalid .invalid-feedback {
+  display: block;
+}
+
+.preview-holder img {
+  width: 100px;
+  margin: 10px auto;
+  border-radius: 3px;
+  border-style: solid;
+  border-color: #999;
+  position: relative;
+  border-width: 3px;
+}
+
+.preview-holder.big-image{
+  position:fixed;
+  background-color: rgba(0, 0, 0, 0.589);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100001;
+}
+.preview-holder.big-image img{
+width: 90%;
+left: 10;
+}
